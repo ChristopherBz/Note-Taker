@@ -6,7 +6,7 @@ Note Taker used to write and save notes. This application will uses Express.js b
 The application is deployed to Heroku.
 
 ## Deployed Application
-(https://nameless-meadow-50471.herokuapp.com/ "Note Taker App")
+Note Taker App: https://nameless-meadow-50471.herokuapp.com/ 
 
 ## Table of Contents
 - [User Story](#User-Story)
