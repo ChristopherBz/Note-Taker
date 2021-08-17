@@ -1,3 +1,4 @@
+// Dependencies
 const fs = require('fs');
 const util = require('util');
 
@@ -10,6 +11,7 @@ const readFromFile = util.promisify(fs.readFile);
  *  @param {object} content The content you want to write to the file.
  *  @returns {void} Nothing
  */
+
 const writeToFile = (destination, content) =>
   fs.writeFile(destination, JSON.stringify(content, null, 2), (err) =>
     err ? console.error(err) : console.info(`\nDatabase has been updated!`)
@@ -21,6 +23,7 @@ const writeToFile = (destination, content) =>
  *  @param {string} file The path to the file you want to save to.
  *  @returns {void} Nothing
  */
+
 const readAndAppend = (content, file) => {
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
@@ -34,7 +37,5 @@ const readAndAppend = (content, file) => {
 };
 
 module.exports = { 
-    readFromFile, 
-    writeToFile, 
-    readAndAppend,
+    readFromFile, writeToFile, readAndAppend,
 };
