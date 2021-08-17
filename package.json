@@ -1,16 +1,18 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "Note Taker",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index"
   },
-  "author": "Christopher",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "nodemon": "^2.0.12",
+    "util": "^0.12.4",
     "uuid": "^8.3.2"
   }
 }

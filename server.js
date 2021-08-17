@@ -1,40 +1,36 @@
 // Dependencies
 const express = require('express');
 const path = require('path');
+const api = require("./routes/index.js"); //Get app from routes/index.js
 const { clog } = require('./middleware/clog');
 
-// Point Server to the route files
-const indexRouter = require('./routes/index.js');
-
-const PORT = process.env.PORT || 3001;
-// Create an express server
+const PORT = process.env.PORT || 8080;
 const app = express();
 
-// Import custom middleware, "cLog"
+//Custom middleware
 app.use(clog);
-
-// Middleware for parsing JSON and urlencoded form data
+//Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', indexRouter);
+app.use('/api', api);
 
 app.use(express.static('./public'));
 
-// Wildcard route to direct users to index.html
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'));
-});
-
-// GET Route for homepage
+//Initial load of page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'))
+  res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 
-// GET Route for notes
-app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/notes.html'))
-});
+//Button click go to note.html
+app.get('/notes', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/notes.html'))
+);
+
+//Wildcard for path which does not exist
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/index.html'))
+);
 
 app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT}`)
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
