@@ -4,7 +4,7 @@ const path = require('path');
 const api = require("./routes/index.js"); //Get app from routes/index.js
 const { clog } = require('./middleware/clog');
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 //Custom middleware
