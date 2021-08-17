@@ -1,12 +1,10 @@
 const express = require('express');
 
-// Import modular routers
-const htmlRouter = require('./htmlRouter');
-const notesRouter = require('./notesRouter');
+// Import router for notes 
+const notesRouter = require('./notes');
 
 const app = express();
 
-app.use('/', htmlRouter);
-app.use('/api', notesRouter);
+app.use('/notes', notesRouter);
 
 module.exports = app;
